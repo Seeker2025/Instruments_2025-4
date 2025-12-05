@@ -1,0 +1,57 @@
+div.modal{
+    width: 380px;
+    padding: 25px;
+    background-color: silver;
+    border-radius: 7px;
+
+    /* position: absolute; */
+}
+
+.cross{
+    cursor: pointer;
+    position: relative;
+    top: -14px;
+    left: 363px;
+    /* border: 1px solid red; */
+    width: 25px;
+    height: 25px;
+
+}
+div.modal p{
+    color: maroon;
+    line-height: 26px;
+    margin-bottom: 13px;
+}
+
+.modal h2 span{
+    color: maroon;
+}
+
+div.modal ul.container_for_button button.button_fav{
+    height:63px;
+}
+
+div.modal ul.container_for_button li:last-child{
+   
+    padding-left: 9px;
+}
+
+ul.container_for_button{
+    display: flex;
+    flex-direction: row;
+}
+
+.ivisible{
+    visibility: visible;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+.display{
+    display: block;
+}
+.no_display{
+    display: none;
+}
