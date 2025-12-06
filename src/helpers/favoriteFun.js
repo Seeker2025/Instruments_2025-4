@@ -3,20 +3,18 @@ const{ KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT } = common;
 // import { instruments } from '../instruments';
 import { findProduct } from './findProduct';
 // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-// import { allInstruments } from '../index';
+//import { allInstruments02 } from '../index';
+
 import { stringify } from 'postcss';
+
 
 let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 console.log(favoriteArr);
 
 
-
-
-// let a = 0;
 function toFavorite(elemFuv){
-//  console.log(a llInstruments);
-
+// console.log(allInstruments);
                const product = findProduct(elemFuv);
                console.log(product);
                //  console.log(favoriteArr);
@@ -61,25 +59,14 @@ function toFavorite(elemFuv){
                localStorage.setItem( KEY_FAVORITE, JSON.stringify(favoriteArr));
                //  console.log(favoriteArr);
                                    // allInstruments = allInstruments.map((itm) =>{
-                                   //      // console.log(itm.id);
-                                   //      // console.log(product.id);
-                                   //       if(itm.id === product.id) {
-                                             
-                                   //        itm.presentFuv = 1;
-
-                                   //        return itm;
-                                   //      //  console.log(itm.presentFuv);
-                                   //           }  
-                                   //           return itm;    
-                                   //               })
+                                   //     if(itm.id === product.id) {
+                                   //     itm.presentFuv = 1;
+                                   //     return itm;
+                                   //     }  
+                                   //     return itm;    
+                                   //     })
                // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));
                // console.log(allInstruments);
-               //    a = a + 1;
-               // console.log(a);
-             
-
-              
-               // console.log(JSON.parse(localStorage.getItem(KEY_INSTRUMENT)));                                 
                
                }
   }

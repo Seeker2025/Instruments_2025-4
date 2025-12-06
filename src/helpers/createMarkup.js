@@ -1,15 +1,17 @@
 import noImg from '../img/no_img.png';
-let AddToFav = 'Add to favorite';
-let RemoveFav = 'Remove from';
-let AddToBas = 'Add to basket';
-let RemoveBas = 'Remove from';
+// let AddToFav = 'Add to favorite';
+// let RemoveFav = 'Remove from';
+// let AddToBas = 'Add to basket';
+// let RemoveBas = 'Remove from';
 
-import { 
-            favoritePage,
-            basketPage,
-            indexPage
-                            } from './createModal';
-// console.log(favoritePage);
+// import { 
+//             favoritePage,
+//             basketPage,
+//             indexPage
+//                             } from './createModal';
+export const indexPage = document.getElementById('index');
+export const favoritePage = document.getElementById('favorite');
+export const basketPage = document.getElementById('basket');
 
 const visible = 'visible';
 const invisible = 'invisible';
@@ -31,8 +33,8 @@ function createMarkup(arr, list){
                     
                     <p><a href="#" class="info js-info">More Information (Modal)</a></p>
     <div class="${ indexPage ?? favoritePage ?? basketPage ? invisible : visible }">
-    <button class="js-favorite" type="button">${presentFuv ? RemoveFav : AddToFav}</button>
-    <button class="js-basket" type="button">${presentBas ? RemoveBas : AddToBas}</button>
+    <button class="js-favorite" type="button"></button>
+    <button class="js-basket" type="button"></button>
                     </div>
                     </li>
                     `).join('');

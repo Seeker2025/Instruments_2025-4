@@ -14,13 +14,14 @@ const  { KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT }   =   common;
 const jsList = document.querySelector('.js-list');
 
 localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
-const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+const instrumentsFromLocal = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+let allInstruments02 = [...instrumentsFromLocal];
 // export { allInstruments };
 // let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 // let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 
-console.log(allInstruments);
-createMarkup(allInstruments, jsList);
+// console.log(allInstruments);
+createMarkup(instruments, jsList);
 
 
 jsList.addEventListener('click', onClick);
@@ -41,7 +42,7 @@ function onClick(evt){
        
     }
     if(evt.target.classList.contains('js-favorite')){
-        
+
             toFavorite(evt.target)
       
        
@@ -56,15 +57,4 @@ function onClick(evt){
     }
 }
 
-
- 
-
-// function findProduct(elem){
-//     const productId = Number(elem.closest('.js-card').dataset.id)
-//     // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-//    return instruments.find(({id}) => id === productId);
-   
-// }
-
-
-export { allInstruments };
+export { allInstruments02 };
