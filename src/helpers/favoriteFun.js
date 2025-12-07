@@ -1,9 +1,25 @@
 import { common } from '../common';
+// import { allInstruments023 } from '../index';
+// console.log(allInstruments023);
 const{ KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT } = common;
-// import { instruments } from '../instruments';
+import { instruments } from '../instruments';
 import { findProduct } from './findProduct';
 // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-//import { allInstruments02 } from '../index';
+// import { allInstruments02 } from '../index';
+
+ let allInstruments=localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
+ 
+//  let allInstruments = [...instrumentsFromLocal];
+ 
+// console.log(allInstruments);
+
+
+
+
+
+
+
+
 
 import { stringify } from 'postcss';
 
@@ -58,16 +74,16 @@ function toFavorite(elemFuv){
                
                localStorage.setItem( KEY_FAVORITE, JSON.stringify(favoriteArr));
                //  console.log(favoriteArr);
-                                   // allInstruments = allInstruments.map((itm) =>{
-                                   //     if(itm.id === product.id) {
-                                   //     itm.presentFuv = 1;
-                                   //     return itm;
-                                   //     }  
-                                   //     return itm;    
-                                   //     })
-               // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));
-               // console.log(allInstruments);
-               
+               // let allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                                  allInstruments = allInstruments.map((itm) =>{
+                                        if(itm.id === product.id) {
+                                        itm.presentFav = 1;
+                                        // console.log(itm);
+                                        return itm;
+                                        }  
+                                        return itm;    
+                                        })
+               localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));
                }
   }
 // console.log(a);
@@ -95,16 +111,21 @@ function toFavorite(elemFuv){
                // product.presentBas = 1;                    
                basketArr.push(product);
                localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr)); 
-                                        // allInstruments = allInstruments.map(itm =>{
-                                        // if(itm.id === product.id) {
-                                        // itm.presentBas = 1;
-                                        //     }      
-                                        //          })
-               // localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));  
-               
+               // let allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                                     let allInstruments = instruments.map((itm) =>{
+                                        if(itm.id === product.id) {
+                                        itm.presentBas = 1;
+                                        // console.log(itm);
+                                        return itm;
+                                        }  
+                                        return itm;    
+                                        })
+               localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));  
+                                        
           }
  }
 
 
 
 export { toFavorite, toBusket };  
+// export { allInstruments };

@@ -4,8 +4,9 @@ import "basiclightbox/dist/basicLightbox.min.css";
 import { instruments    } from '../instruments';
 
 import { common } from '../common';
-const  { KEY_FAVORITE, KEY_BASKET } = common;
+const  { KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT } = common;
 
+//  localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
 let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 
@@ -14,18 +15,20 @@ import { createMarkup } from './createMarkup';
 import    closeIcon from '../img/close.png';
 import { 
           toFavorite,
-          toBusket,
+          toBusket
+         
                      } from './favoriteFun';
 
 const favList = document.querySelector('.favorite_list');
 const basketList = document.querySelector('.checkout_list');
-
+////// three pages
 export const indexPage = document.getElementById('index');
 export const favoritePage = document.getElementById('favorite');
 export const basketPage = document.getElementById('basket');
 
 
 function createModal({img, name, price, description, id, presentFuv, presentBas}){
+  // console.log( allInstruments);
   
  
      const instance = basicLightbox.create(`
@@ -79,25 +82,32 @@ instance.show();
 
  const modal = document.querySelector('.modal');
 
+const instrumentsFromLocal = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+console.log(instrumentsFromLocal);
 
               ////// This is for second button
  const btnBasket = document.querySelector('div.modal button.js-basket');
-              const inBasket = basketArr.some(itm=>itm.id===id);
+              const flagBas = instrumentsFromLocal.some(itm=>itm.presentBas === 1);
 
-                if(inBasket){
+                if(flagBas){
               btnBasket.textContent = 'Remove from basket';
                 }else{
               btnBasket.textContent = 'Add to basket';
                 }
               ////// This is for first button
- const btnFavorite = document.querySelector('div.modal button.js-favorite');              
-              const inFavor = favoriteArr.some(itm=>itm.id===id);
-              
-                if(inFavor){
+             
+              // const inFavor = favoriteArr.some(itm=>itm.id===id);
+ 
+
+const btnFavorite = document.querySelector('div.modal button.js-favorite');  
+              const flagFav = instrumentsFromLocal.some(itm=>itm.presentFuv === 1);
+                // console.log(flag);                
+              if(flagFav){
               btnFavorite.textContent = 'Remove from favorite';
                 }else{
               btnFavorite.textContent = 'Add to favorite';
                 }
+              
 
  modal.addEventListener('click', onClick);
                     
@@ -110,6 +120,8 @@ instance.show();
                                                 if(indexPage){
                   
                 toFavorite(evt.target, instruments);
+                
+                
                   if(btnFavorite.textContent === 'Add to favorite'){
                 btnFavorite.textContent = 'Remove from favorite';
                   }else{
@@ -147,9 +159,9 @@ instance.show();
       if(evt.target.closest('.js-basket')){
                                                 if(indexPage){
                 toBusket(evt.target, basketArr);
-                 if(btnBasket.textContent === 'Remove from basket'){
+                  if(btnBasket.textContent === 'Remove from basket'){
                 btnBasket.textContent = 'Add to basket';
-                }else{
+                  }else{
                 btnBasket.textContent = 'Remove from basket';
                 }  
                                                 }

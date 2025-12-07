@@ -13,9 +13,9 @@ const  { KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT }   =   common;
 // const search = document.querySelector('.js-search');
 const jsList = document.querySelector('.js-list');
 
-localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
-const instrumentsFromLocal = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-let allInstruments02 = [...instrumentsFromLocal];
+// localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
+// const instrumentsFromLocal = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+// let allInstruments023 = [...instrumentsFromLocal];
 // export { allInstruments };
 // let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 // let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
@@ -57,4 +57,4 @@ function onClick(evt){
     }
 }
 
-export { allInstruments02 };
+

@@ -7,7 +7,7 @@ import { findProduct  } from './helpers/findProduct';
 
 //import {  buttonDis   } from './helpers/buttonDis'
  import {  toFavorite, toBusket   } from './helpers/favoriteFun';
-const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+// const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
 
 const favList = document.querySelector('.favorite_list');
 
@@ -53,8 +53,8 @@ createMarkup(favoriteArr, favList);
    if(evt.target.classList.contains('js-basket')){
 
 
-                toBusket(evt.target, allInstruments);
-                const basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
+                toBusket(evt.target);
+               //  const basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
                //  createMarkup(basketArr, favList);
 
 
