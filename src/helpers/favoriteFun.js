@@ -7,19 +7,11 @@ import { findProduct } from './findProduct';
 // const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
 // import { allInstruments02 } from '../index';
 
- let allInstruments=localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
+//  let allInstruments=localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
  
 //  let allInstruments = [...instrumentsFromLocal];
  
 // console.log(allInstruments);
-
-
-
-
-
-
-
-
 
 import { stringify } from 'postcss';
 
@@ -28,6 +20,7 @@ let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 console.log(favoriteArr);
 
+ let allInstruments = null;
 
 function toFavorite(elemFuv){
 // console.log(allInstruments);
@@ -74,7 +67,7 @@ function toFavorite(elemFuv){
                
                localStorage.setItem( KEY_FAVORITE, JSON.stringify(favoriteArr));
                //  console.log(favoriteArr);
-               // let allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+               allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
                                   allInstruments = allInstruments.map((itm) =>{
                                         if(itm.id === product.id) {
                                         itm.presentFav = 1;
@@ -111,8 +104,8 @@ function toFavorite(elemFuv){
                // product.presentBas = 1;                    
                basketArr.push(product);
                localStorage.setItem(KEY_BASKET, JSON.stringify(basketArr)); 
-               // let allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-                                     let allInstruments = instruments.map((itm) =>{
+               allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
+                                     allInstruments = allInstruments.map((itm) =>{
                                         if(itm.id === product.id) {
                                         itm.presentBas = 1;
                                         // console.log(itm);
@@ -124,6 +117,8 @@ function toFavorite(elemFuv){
                                         
           }
  }
+ console.log('a');
+//   localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(allInstruments));
 
 
 

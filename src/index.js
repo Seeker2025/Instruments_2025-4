@@ -37,8 +37,8 @@ function onClick(evt){
             // product.presentFuv = 0;
             // product.presentBas = 0;
        
-            const{img, name, price, description, id, presentFuv, presentBas} = product
-            createModal({img, name, price, description, id, presentFuv, presentBas})
+        //     const{img, name, price, description, id, presentFuv, presentBas} = product
+            createModal(product)
        
     }
     if(evt.target.classList.contains('js-favorite')){
