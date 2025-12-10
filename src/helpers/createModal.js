@@ -5,8 +5,7 @@ import { instruments    } from '../instruments';
 
 import { common } from '../common';
 const  { KEY_FAVORITE, KEY_BASKET, KEY_INSTRUMENT } = common;
-// const allInstruments = JSON.parse(localStorage.getItem(KEY_INSTRUMENT));
-localStorage.setItem(KEY_INSTRUMENT, JSON.stringify(instruments));
+
 let favoriteArr = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
 let basketArr = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
 
@@ -27,10 +26,8 @@ export const favoritePage = document.getElementById('favorite');
 export const basketPage = document.getElementById('basket');
 
 
-function createModal({img, name, price, description, id, presentFuv, presentBas}){
+function createModal({img, name, price, description, id}){
 
-  
-  
  
      const instance = basicLightbox.create(`
 	    <div class="modal js-card" data-id=${id}>
@@ -83,35 +80,30 @@ instance.show();
 
  const modal = document.querySelector('.modal');
 
-let instrumentsFromLocal = JSON.parse(localStorage.getItem('KEY_INSTRUMENT02')) ?? [];
+let instrumentsFromLocal = JSON.parse(localStorage.getItem(KEY_INSTRUMENT)) ?? [];
 console.log(instrumentsFromLocal);
 
-              ////// This is for second button
+ ////// This is for first button
+            const btnFavorite = document.querySelector('div.modal button.js-favorite');  
+            const flagFav = instrumentsFromLocal.find(itm=>itm.id === id);
+                       
+            console.log(flagFav);                
+             if(flagFav?.presentFav){
+            btnFavorite.textContent = 'Remove from favorite';
+              }else{
+            btnFavorite.textContent = 'Add to favorite';
+            }
+
+////// This is for second button
  const btnBasket = document.querySelector('div.modal button.js-basket');
-              const flagBas = instrumentsFromLocal.some(itm=>itm.presentBas === 1);
-              // const flagBas = false;
-
-                if(flagBas){
-              btnBasket.textContent = 'Remove from basket';
-                }else{
-              btnBasket.textContent = 'Add to basket';
-                }
-              ////// This is for first button
+            const flagBas = instrumentsFromLocal.find(itm=>itm.id === id);
              
-              // const inFavor = favoriteArr.some(itm=>itm.id===id);
+              if(flagBas?.presentBas){
+            btnBasket.textContent = 'Remove from basket';
+              }else{
+            btnBasket.textContent = 'Add to basket';
+              }
  
-
-const btnFavorite = document.querySelector('div.modal button.js-favorite');  
-              const flagFav = instrumentsFromLocal.some(itm=>itm.presentFav === 1);
-              // const flagFav = false;
-                console.log(flagFav);                
-              if(flagFav){
-              btnFavorite.textContent = 'Remove from favorite';
-                }else{
-              btnFavorite.textContent = 'Add to favorite';
-                }
-              
-
  modal.addEventListener('click', onClick);
                     
                                           function onClick(evt){
@@ -130,8 +122,7 @@ const btnFavorite = document.querySelector('div.modal button.js-favorite');
                   }else{
                 btnFavorite.textContent = 'Add to favorite';
                   }     
-              
-                                               
+                             
                                                 }
                                                 if(favoritePage){
                                                   
