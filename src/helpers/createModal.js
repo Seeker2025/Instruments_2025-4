@@ -114,7 +114,7 @@ console.log(instrumentsFromLocal);
                  
                                                 if(indexPage){
                   
-                toFavorite(evt.target, instruments);
+                toFavorite(evt.target);
                 
                 
                   if(btnFavorite.textContent === 'Add to favorite'){
@@ -126,7 +126,7 @@ console.log(instrumentsFromLocal);
                                                 }
                                                 if(favoritePage){
                                                   
-                toFavorite(evt.target, favoriteArr);
+                toFavorite(evt.target);
                 const favoriteLoc = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];
                 createMarkup(favoriteLoc, favList);
 
@@ -139,7 +139,7 @@ console.log(instrumentsFromLocal);
                                                 }
                                                 if(basketPage){
                 let  favoriteLoc = JSON.parse(localStorage.getItem(KEY_FAVORITE)) ?? [];                                  
-                toFavorite(evt.target, favoriteLoc);
+                toFavorite(evt.target);
                   if(btnFavorite.textContent === 'Remove from favorite'){
                 btnFavorite.textContent = 'Add to favorite';
                   }else{
@@ -152,7 +152,7 @@ console.log(instrumentsFromLocal);
  
       if(evt.target.closest('.js-basket')){
                                                 if(indexPage){
-                toBusket(evt.target, basketArr);
+                toBusket(evt.target);
                   if(btnBasket.textContent === 'Remove from basket'){
                 btnBasket.textContent = 'Add to basket';
                   }else{
@@ -161,7 +161,7 @@ console.log(instrumentsFromLocal);
                                                 }
                                                 if(basketPage){
                                          
-                toBusket(evt.target, basketArr);
+                toBusket(evt.target);
                 const basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];
                 createMarkup(basketArrLoc, basketList);
                   if(btnBasket.textContent === 'Remove from basket'){
@@ -174,7 +174,7 @@ console.log(instrumentsFromLocal);
                                                 }
                                                 if(favoritePage){
                 let basketArrLoc = JSON.parse(localStorage.getItem(KEY_BASKET)) ?? [];                                  
-                toBusket(evt.target, basketArrLoc);
+                toBusket(evt.target);
                   if(btnBasket.textContent === 'Remove from basket'){
                 btnBasket.textContent = 'Add to basket';
                   }else{
